@@ -49,16 +49,13 @@ const Prefixes = {
 }
 
 const Suffixes = {
-    1: "",
-    2: "Cem",
-    3: "Mil",
+    2: "Mil",
     3: "Milhão",
     4: "Bilhão",
-    5: "Trilhão"
+    5: "Trilhão",
 }
 
 const SuffixesPlural = {
-    2: "",
     3: "Milhões",
     4: "Bilhões",
     5: "Trilhões"
@@ -110,7 +107,8 @@ function toWords(number) {
         }
     }
 
-    console.log(`O número é pararã ${numberText}`);
+    return numberText
+    //console.log(`O número é pararã ${numberText}`);
 }
 
 function twoDigitsConvert(number) {
@@ -174,28 +172,32 @@ function threeDigitsConvert(number) {
     return currentNumberText
 }
 
-function fourDigitsConvert(number) {
-    const absoluteNumber = Math.abs(number);
+// function fourDigitsConvert(number) {
+//     const absoluteNumber = Math.abs(number);
 
-    if(number == 0) return "";
+//     if(number == 0) return "";
 
-    else if(absoluteNumber < 1000) {
-        currentNumberText += threeDigitsConvert(absoluteNumber);
+//     else if(absoluteNumber < 1000) {
+//         currentNumberText += threeDigitsConvert(absoluteNumber);
         
-        return currentNumberText;
-    }
+//         return currentNumberText;
+//     }
 
-    else {
-        currentNumberText += Tens[absoluteNumber.toString().charAt(0)];
-        currentNumberText += " Cento ";
+//     else if(absoluteNumber.toString().charAt(0) == 1 && absoluteNumber.to) {
+//         if(absoluteNumber.toString().charAt(1) in Tens) {
 
-        if(number.toString().substr(1) !== "00") {
-            currentNumberText += twoDigitsConvert(parseInt(absoluteNumber.toString().substr(1)));
-        }
-    }
+//         }
+//         currentNumberText += Ones[absoluteNumber.toString().charAt(0)] + " ";
 
-    return currentNumberText
-}
+//         currentNumberText += Suffixes[absoluteNumber.toString().substr(1, 3)];
+//     }
+
+//     else if(absoluteNumber.toString().substr(1,3) !== "0000") {
+
+//     }
+
+//     return currentNumberText
+// }
 
 function splitNumber(number) {
     const numberArray = [];
